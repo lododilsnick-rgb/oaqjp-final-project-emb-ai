@@ -14,11 +14,13 @@ def sent_detector():
     """Handle emotion detector request"""
     # Retrieve the text to analyze from the request arguments
     text_to_analyze = request.args.get('textToAnalyze')
+    formatted = "Invalid input text"
 
-    # Pass the text to the emotion detector function and store the response
-    response = emotion_detector(text_to_analyze)
-    formatted = f"""
-    For the given statement, the system response is 'anger': {response['anger']}, 
+    if(text_to_analyze is not None and text_to_analyze.strip()):
+        # Pass the text to the emotion detector function and store the response
+        response = emotion_detector(text_to_analyze)
+        formatted = f"""
+For the given statement, the system response is 'anger': {response['anger']}, 
 'disgust': {response['disgust']}, 'fear': {response['fear']}, 
 'joy': {response['joy']} and 'sadness': {response['sadness']}. 
 The dominant emotion is {response['dominant_emotion']}"""

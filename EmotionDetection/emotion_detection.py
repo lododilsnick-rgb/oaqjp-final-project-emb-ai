@@ -25,6 +25,15 @@ def emotion_detector(text_to_analyse):
 
             if scores[emotion] > dominant[1]:
                 dominant = (emotion, scores[emotion])
+    elif response.status_code == 400:
+        scores = {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
 
     scores["dominant_emotion"] = dominant[0]
     
