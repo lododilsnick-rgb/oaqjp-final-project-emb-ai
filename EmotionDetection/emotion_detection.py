@@ -11,12 +11,12 @@ def emotion_detector(text_to_analyse):
     dominant = ("none", 0)
 
     scores = {
-        'anger': 0,
-        'disgust':0,
-        'fear': 0,
-        'joy': 0,
-        'sadness': 0,
-        'dominant_emotion': dominant[0]
+        'anger': None,
+        'disgust': None,
+        'fear': None,
+        'joy': None,
+        'sadness': None,
+        'dominant_emotion': None
     }
 
     if response.status_code == 200:
